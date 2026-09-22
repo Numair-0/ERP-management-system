@@ -1,0 +1,13 @@
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './styles/styles.css';
+import './styles/readability.css';
+import './styles/colorful.css';
+import './styles/interactive.css';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+);

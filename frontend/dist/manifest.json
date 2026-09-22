@@ -1,0 +1,11 @@
+{
+  "name": "Markaz Madrasa Management",
+  "short_name": "Markaz ERP",
+  "description": "Madrasa management workspace",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#f7f8fa",
+  "orientation": "portrait-primary",
+  "icons": []
+}

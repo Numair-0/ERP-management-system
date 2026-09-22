@@ -1,0 +1,130 @@
+/* Login page v2 + shared password form. All classes are prefixed lg- so the dashboard is not affected. */
+.lg-page {
+  min-height: calc(100vh - 38px);
+  display: grid;
+  grid-template-columns: minmax(300px, 46%) 1fr;
+  background: #f1f5f9;
+}
+
+/* ---------- Brand side ---------- */
+.lg-brand {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  color: #fff;
+  background: linear-gradient(155deg, #0f766e 0%, #115e59 55%, #134e4a 100%);
+}
+.lg-brand::before, .lg-brand::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+}
+.lg-brand::before { width: 420px; height: 420px; top: -140px; right: -140px; }
+.lg-brand::after { width: 300px; height: 300px; bottom: -110px; left: -90px; }
+.lg-brand-inner { position: relative; z-index: 1; max-width: 400px; }
+.lg-logo {
+  width: 68px; height: 68px; display: grid; place-items: center; border-radius: 18px;
+  background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 38px; font-weight: 800; margin-bottom: 22px;
+}
+.lg-brand h2 { margin: 0; font-size: 46px; line-height: 1; font-weight: 800; letter-spacing: -1.5px; color: #fff; }
+.lg-brand-sub { margin: 8px 0 4px; font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.95); }
+.lg-brand-desc { margin: 0 0 34px; font-size: 14px; color: rgba(255, 255, 255, 0.75); }
+.lg-headline { margin: 0 0 16px; font-size: 22px; line-height: 1.3; font-weight: 700; color: #fff; }
+.lg-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.lg-points li { display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255, 255, 255, 0.92); }
+.lg-points li span {
+  flex: 0 0 auto; width: 32px; height: 32px; display: grid; place-items: center;
+  border-radius: 10px; background: rgba(255, 255, 255, 0.15);
+}
+.lg-dept-icons { display: flex; gap: 10px; margin-top: 34px; color: rgba(255, 255, 255, 0.55); }
+
+/* ---------- Form side ---------- */
+.lg-panel { display: grid; place-items: center; padding: 32px 24px; }
+.lg-card {
+  width: 100%; max-width: 440px; background: #fff; border-radius: 22px; padding: 38px 36px 28px;
+  border: 1px solid #e2e8f0; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+.lg-heading { text-align: center; margin-bottom: 26px; }
+.lg-badge {
+  width: 48px; height: 48px; margin: 0 auto 12px; display: grid; place-items: center;
+  border-radius: 14px; color: #0f766e; background: #ccfbf1;
+}
+.lg-eyebrow { margin: 0 0 6px; font-size: 11px; font-weight: 800; letter-spacing: 1.6px; color: #0d9488; }
+.lg-heading h1 { margin: 0 0 6px; font-size: 26px; font-weight: 800; color: #0f172a; letter-spacing: -0.5px; }
+.lg-heading p { margin: 0; font-size: 14px; color: #64748b; line-height: 1.5; }
+
+.lg-form { display: grid; gap: 16px; }
+.lg-field { display: grid; gap: 7px; }
+.lg-field > span { font-size: 13px; font-weight: 700; color: #334155; }
+.lg-hint { font-size: 12px; color: #64748b; }
+
+.lg-input-wrap { position: relative; }
+.lg-input-wrap input, .lg-input-wrap select {
+  width: 100%; box-sizing: border-box; height: 48px; padding: 0 44px 0 44px; font: inherit; font-size: 15px;
+  color: #0f172a; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; outline: none;
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+.lg-input-wrap input[readonly] { color: #64748b; background: #f1f5f9; }
+.lg-input-wrap input::placeholder { color: #94a3b8; }
+.lg-input-wrap input:focus, .lg-input-wrap select:focus {
+  background: #fff; border-color: #14b8a6; box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.15);
+}
+.lg-input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
+.lg-input-wrap:focus-within .lg-input-icon { color: #0d9488; }
+.lg-select-wrap select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.lg-chevron { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #64748b; pointer-events: none; }
+.lg-eye {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px;
+  display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; color: #64748b; cursor: pointer;
+}
+.lg-eye:hover { background: #e2e8f0; color: #0f172a; }
+
+.lg-error {
+  margin: 0; padding: 10px 12px; border-radius: 10px; font-size: 13px; line-height: 1.4;
+  color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca;
+}
+
+.lg-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 22px;
+  font: inherit; font-size: 15px; font-weight: 700; color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, #0d9488, #0f766e); border: 0; border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.28); transition: transform .12s, box-shadow .12s, opacity .12s;
+}
+.lg-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(13, 148, 136, 0.34); }
+.lg-btn:disabled { opacity: .65; cursor: wait; }
+.lg-btn-block { width: 100%; }
+.lg-btn-ghost { color: #334155; background: #fff; border: 1.5px solid #e2e8f0; box-shadow: none; }
+.lg-btn-ghost:hover:not(:disabled) { background: #f8fafc; box-shadow: none; }
+.lg-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.lg-actions .lg-btn { flex: 1 1 auto; }
+
+.lg-link {
+  justify-self: center; padding: 6px 10px; font: inherit; font-size: 14px; font-weight: 700;
+  color: #0d9488; background: none; border: 0; border-radius: 8px; cursor: pointer;
+}
+.lg-link:hover { color: #0f766e; text-decoration: underline; }
+.lg-note { display: block; margin-top: 22px; text-align: center; font-size: 12px; color: #94a3b8; }
+
+.lg-success { display: grid; justify-items: center; gap: 14px; padding: 12px 0 6px; text-align: center; color: #0f766e; }
+.lg-success strong { font-size: 16px; color: #0f172a; }
+
+/* Inside the dashboard modal */
+.action-modal .lg-form { margin-top: 6px; }
+
+@media (max-width: 860px) {
+  .lg-page { grid-template-columns: 1fr; }
+  .lg-brand { padding: 28px 24px; }
+  .lg-brand::before, .lg-brand::after, .lg-dept-icons, .lg-points, .lg-headline { display: none; }
+  .lg-brand-desc { margin-bottom: 0; }
+  .lg-brand h2 { font-size: 34px; }
+  .lg-logo { width: 52px; height: 52px; font-size: 28px; margin-bottom: 14px; }
+  .lg-card { padding: 28px 22px 22px; }
+}
+
+/* Profile menu: "Change password" is a normal action, only "Sign out" stays red */
+.profile-menu button:not(:last-child) { color: #0f766e; }
