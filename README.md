@@ -1,4 +1,27 @@
-🕌 Madarsa Management SuiteA professional, multilingual-ready enterprise management dashboard built specifically for Islamic educational institutions and boarding madarsas.🚀 OverviewThe Madarsa Management Suite is a comprehensive, modular ERP designed to digitize and streamline administrative, academic, and residential operations for Islamic educational institutions. It features a robust, secure Node.js backend coupled with a modern Vite + React progressive web application shell.Key HighlightsModular ERP Architecture: Scalable domain modules covering academics, attendance, accounting, library, kitchen, hostel, and administration.Enterprise Security: Built with bcrypt, JWT authentication, persistent device sessions, granular Role-Based Access Control (RBAC), and full audit logging.Developer Experience: Clean separation of concerns following a strict route -> controller -> service -> repository flow.Production Ready: Pre-configured with seeding for initial administrative accounts and test datasets.🛠️ Technology StackLayerTechnologiesFrontendVite, React, Progressive Web App (PWA) ShellBackendNode.js, Express.jsDatabaseMongoDB, Mongoose ODMSecurityJSON Web Tokens (JWT), bcrypt, RBAC📁 Architecture & Directory StructureThe project is structured into a clean monorepo separating the client-side presentation from the API server:Plaintext├── frontend/                  # Vite + React interface and presentation components
+🕌 Madarsa Management Suite
+
+A professional, multilingual-ready enterprise management dashboard built specifically for Islamic educational institutions and boarding madarsas.
+🚀 Overview
+The Madarsa Management Suite is a comprehensive, modular ERP designed to digitize and streamline administrative, academic, and residential operations for Islamic educational institutions. It features a robust, secure Node.js backend coupled with a modern Vite + React progressive web application shell.
+
+Key Highlights
+Modular ERP Architecture: Scalable domain modules covering academics, attendance, accounting, library, kitchen, hostel, and administration.
+
+Enterprise Security: Built with bcrypt, JWT authentication, persistent device sessions, granular Role-Based Access Control (RBAC), and full audit logging.
+
+Developer Experience: Clean separation of concerns following a strict route -> controller -> service -> repository pattern.
+
+Production Ready: Pre-configured with database seeding for initial administrative accounts and sample test datasets.
+
+
+🛠️ Technology StackLayerTechnologies
+FrontendVite, React, 
+Progressive Web App (PWA) ShellBackendNode.js, Express.js 
+DatabaseMongoDB, Mongoose 
+ODMSecurityJSON Web Tokens (JWT),
+bcrypt, RBAC
+
+├── frontend/                  # Vite + React interface and presentation components
 └── backend/                   # Express API, routes, and domain data
     └── src/
         ├── config/            # Environment and application configuration
@@ -11,18 +34,4 @@
         ├── services/          # Business logic and use cases
         ├── app.js             # Express middleware and route composition
         └── server.js          # Process startup and HTTP listener
-Architecture Note: Request execution follows a strict unidirectional flow:Route $\rightarrow$ Controller $\rightarrow$ Service $\rightarrow$ Repository $\rightarrow$ Response.All database-specific operations are isolated within the repository layer to keep business logic maintainable and testable.⚙️ Getting Started & Local SetupPrerequisitesNode.js (v18+ recommended)MongoDB running locally or via a cloud instance (e.g., MongoDB Atlas)InstallationClone the repository:Bashgit clone https://github.com/your-username/madarsa-management-suite.git
-cd madarsa-management-suite
-Install dependencies across the workspace:Bashnpm install
-npm install --prefix frontend
-npm install --prefix backend
-Configure Environment Variables:Create a .env file inside the backend/ directory based on your environment template:Code snippetMONGO_URI=mongodb://127.0.0.1:27017
-MONGO_DATABASE=madarsa_management
-PORT=4000
-CORS_ORIGIN=http://localhost:5173
-JWT_SECRET=replace-with-a-long-random-secret
-ADMIN_EMAIL=admin@markaz.local
-ADMIN_PASSWORD=change-this-password
-⚠️ Security Warning: Change ADMIN_EMAIL and ADMIN_PASSWORD immediately after initial deployment. Default credentials and roles are defined in backend/src/config/roles.js.Run the Application:Start both the development frontend and backend concurrently from the root directory:Bashnpm run dev
-Frontend: http://localhost:5173Backend API: http://localhost:4000🔌 API ReferenceAuthentication EndpointsMethodEndpointDescriptionPOST/api/auth/loginAuthenticate with email & passwordGET/api/auth/meRetrieve current authenticated user profileCore Madarsa ERP Modules (/api/madarsa)Note: Protected endpoints require the header Authorization: Bearer <token>. The system health check remains public.System & Modules:GET /api/madarsa — List available modulesGET /api/madarsa/reports — Generate and list system reportsGET /api/madarsa/support — List support requestsDomain Records:GET /api/madarsa/students — List student records (supports paginated search, create, edit, soft-delete)GET /api/madarsa/academics — List academic recordsGET /api/madarsa/attendance — List attendance logsGET /api/madarsa/accounting — List financial and accounting logsGET /api/madarsa/library — List library inventory & issuanceGET /api/madarsa/kitchen — List mess & kitchen management recordsGET /api/madarsa/hostel — List hostel room allocations and boarder logsGET /api/madarsa/administration — List administrative logsGeneric CRUD Operations:POST /api/madarsa/:module/records — Create a new module recordGET /api/madarsa/:module/records/:id — Retrieve a single record by IDPATCH /api/madarsa/:module/records/:id — Update an existing recordDELETE /api/madarsa/:module/records/:id — Soft-delete or remove a record🧪 Verification & TestingTo validate code health, syntax, and build configurations before committing changes, run the following commands:Validate Backend Syntax:Bashnpm run check --prefix backend
-Build Frontend Production Bundle:Bashnpm run build --prefix frontend
+
